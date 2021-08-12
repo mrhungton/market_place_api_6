@@ -2,8 +2,4 @@
 
 one:
   email: one@one.org
-  password_digest: secret
-
-two:
-  email: two@two.com
-  password_digest: secret
+  password_digest: <%= BCrypt::Password.create('g00d_pa$$') %>

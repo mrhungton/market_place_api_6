@@ -72,4 +72,12 @@ class Api::V1::ProductsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_response :forbidden
   end
+
+  test "should filter products by name" do
+    assert_equal 2, Product.filter_by_title('tv').count
+  end
+
+  test "should filter products by name and sort them" do
+    assert_equal [products(:another_tv), products(:one)], Product.filter_by_title('tv').sort
+  end
 end
